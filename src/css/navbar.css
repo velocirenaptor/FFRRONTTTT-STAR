@@ -1,35 +1,14 @@
-.Navbar{
-    font-family: "poppins", sans-serif;
-    color: #101010;
-    background-color: #ffffff;
-    padding: 0%;
-    margin: 0%;
-}
+/* navbar.css */
 
-.Navbar-title {
-    font-size: 24px;
-    color: #0e0e0e; /* Dark gray text color */
-  }
-  
-  .Navbar-link {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #2e2e2e; /* Medium gray text color */
-    padding: 10px 15px; /* Adjust padding as needed */
-    text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition for color change */
-  }
-  
-  .Navbar-link:hover {
-    color: #ffffff; /* Blue text color on hover */
-  }
-  
-  .profile-container {
-    display: flex;
-    align-items: right;
-    text-align: right;
+.Navbar {
+  font-family: "poppins", sans-serif;
+  color: #101010;
+  background-color: #ffffff;
+  padding: 0%;
+  margin: 0%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Navbar-logo {
@@ -38,40 +17,42 @@
   margin-left: 2%;
   margin-top: 1%;
 }
-.profile-picture {
-    border-radius: 50%;
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    object-fit: cover;
-    margin-left: 20px;
-}
-
-.email {
-    color: #8a8a8a; /* Lighter shade of gray */
-}
-
-.leftSide {
-    display: flex;
-    align-items: center;
-}
-
-.rightSide {
-  margin-left: 2%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: left;
-}
-
-.Navbar-link {
-    margin-right: 2%;
-}
 
 .btn {
-  width: 20%;
-  height: 5%;
-  background-color: transparent;  
+  align-self: right;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #d477ae;
+
+.Navbar-link {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #2e2e2e; /* Medium gray text color */
+  padding: 10px 15px; /* Adjust padding as needed */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.Navbar-link:hover {
+  color: #ffffff; /* Blue text color on hover */
+}
+
+/* Hide/show links on smaller screens */
+.rightSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightSide.show {
+  display: flex;
+}
+
+.rightSide:not(.show) {
+  display: none;
 }

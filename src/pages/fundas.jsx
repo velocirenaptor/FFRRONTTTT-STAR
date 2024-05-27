@@ -4,19 +4,22 @@ import '../css/product.css';
 import DisplayProduct from '../components/DisplayProduct';
 
 function Fundas() {
-
   return (
     <div>
-      <section className="shop_section layout_padding">
+<>
+  <section className="shop_section layout_padding">
+    <div className="container">
       <div className="heading_container heading_center">
-        <h2>Fundas Personalizadas</h2>
+        <h2>Fundas</h2>
       </div>
-      </section>
-      <div>
-        <DisplayProduct />
-      </div>
+      <DisplayProduct />
     </div>
-  );
+  </section>
+</>
+
+    </div>
+  )
 }
+
 
 export default Fundas;

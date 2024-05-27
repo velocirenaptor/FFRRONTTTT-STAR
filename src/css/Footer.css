@@ -1,0 +1,47 @@
+footer {
+  background-color: #1a1a1a;
+  padding: 20px;
+  color: rgb(141, 141, 141);
+  font-size: 14px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+
+.about {
+  display: 20px;
+  text-align: left;
+  grid-column: 1/2;
+}
+
+.about p {
+  margin-bottom: 10px;
+}
+
+.subscribe {
+  grid-column: 2/2;
+  text-align: right;
+}
+
+.footer-btn {
+  width: 50%;
+  height: 20%;
+  background-color: #fc5688;
+
+}
+
+.footer-btn :hover {
+  background-color: rgb(255, 126, 148);
+  text-decoration: none;
+}
+
+.contact {
+  text-align: center;
+}
+
+.copyright {
+  text-align: center;
+}

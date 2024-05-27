@@ -6,6 +6,11 @@ import Extras from './pages/extras'
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Signup from "./pages/signup";
+import Profile from "./pages/dashboard/Profile";
+import Settings from "./pages/dashboard/Settings";
+import ProductDetail from "./components/ProductDetail";
+import Sidebar from "./pages/dashboard/Sidebar";
+import Dashboard from "./pages/dashboard/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -16,14 +21,19 @@ function App() {
         <Route path="/cases" element={<Layout><Fundas /></Layout>} />
         <Route path="/extras" element={<Layout><Extras /></Layout>} />
         <Route path="/clothing" element={<Layout><Clothing /></Layout>} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/special" element={<LoginPage />} /> {}
+        <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
+        <Route path="/signup" element={<Layout><Signup /></Layout>} />
+        <Route path="/special" element={<LoginPage />} />
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-// Layout component with header and footer
 function Layout({ children }) {
   return (
     <>
@@ -34,12 +44,24 @@ function Layout({ children }) {
   );
 }
 
-// Special page without header and footer
+function DashboardLayout({ children }) {
+  return (
+    <>
+      <Sidebar />
+      <div className="dashboard-content">
+        {children}
+      </div>
+    </>
+  );
+}
+
 function LoginPage() {
   return (
-    <div>
 
+    <div>
+      
     </div>
+
   );
 }
 

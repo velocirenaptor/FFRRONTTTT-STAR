@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter, Link, Route, Router } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faShirt, faPalette } from '@fortawesome/free-solid-svg-icons';
-import { MdOutlineSmartphone } from "react-icons/md";
-
-
+import { MdOutlineSmartphone, MdShoppingCart } from "react-icons/md";
 
 const Navbar = () => {
+  const [showLinks, setShowLinks] = useState(false);
+
   const navigateTo = (path) => {
     window.location.href = path;
   };
@@ -15,11 +15,10 @@ const Navbar = () => {
   return (
     <nav className="Navbar">
       <div className="leftSide">
-        <img src='https://res.cloudinary.com/dd9lx460j/image/upload/v1715059850/logo3_u3dnzv.png' alt='Starcases' className='Navbar-logo' />
+        <img src='https://res.cloudinary.com/dd9lx460j/image/upload/v1715059850/logo3_u3dnzv.png' alt='Starcases' className='Navbar-logo' onClick={() => navigateTo("/")} />
       </div>
-      <div className="rightSide">
-
-      <button className="Navbar-link btn" onClick={() => navigateTo("/")}>
+      <div className={`rightSide ${showLinks ? "show" : ""}`}>
+        <button className="Navbar-link btn" onClick={() => navigateTo("/")}>
           Home <FontAwesomeIcon icon={faHome} />
         </button>
 
@@ -38,17 +37,21 @@ const Navbar = () => {
         <button className='Navbar-link btn' onClick={() => navigateTo("/signup")}>
         Iniciar Sesión <FontAwesomeIcon icon={faUser} />
         </button>
+
+        <button className='Navbar-link btn' onClick={() => navigateTo("/cart")}>
+        Carrito <MdShoppingCart />
+        </button>
+
+        <button className='Navbar-link btn' onClick={() => navigateTo("/dashboard")}>
+        Dashboard <MdShoppingCart />
+        </button>
         <span>
 
         </span>
       </div>
+      <button className="btn" onClick={() => setShowLinks(!showLinks)}>Menu</button>
     </nav>
   );
 };
-
-function navLink({ to, text }) {
-  return <Link className="Navbar-link" to={to}>{text}</Link>;
-}
-
 
 export default Navbar;
