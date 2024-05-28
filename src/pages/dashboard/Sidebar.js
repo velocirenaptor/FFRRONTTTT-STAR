@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faComment, faWrench, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import '../../css/Sidebar.css'; 
@@ -18,7 +18,7 @@ const Sidebar = () => {
         <FontAwesomeIcon icon={faHome} className='icon'/> Home 
         </button>
 
-        <button className="sidebar-btn" onClick={() => navigateTo("/dashboard/profile")}>
+        <button className="sidebar-btn" onClick={() => navigateTo("/profile")}>
         <FontAwesomeIcon icon={faUser} className='icon'/> Perfil 
         </button>
         
@@ -30,7 +30,7 @@ const Sidebar = () => {
         <FontAwesomeIcon icon={faShoppingCart} className='icon'/> Carrito 
         </button>
 
-        <button className="sidebar-btn" onClick={() => navigateTo("/dashboard/settings")}>
+        <button className="sidebar-btn" onClick={() => navigateTo("/settings")}>
         <FontAwesomeIcon icon={faWrench}className='icon'/>  Configuración 
         </button>
         </ul>
@@ -38,6 +38,7 @@ const Sidebar = () => {
     </div>
   );
 };
+
 
 export default Sidebar;
 

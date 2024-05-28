@@ -6,7 +6,7 @@ import Extras from './pages/extras'
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Signup from "./pages/signup";
-import Profile from "./pages/dashboard/Profile";
+import Profile from "./pages/dashboard/user/Profile";
 import Settings from "./pages/dashboard/Settings";
 import ProductDetail from "./components/ProductDetail";
 import Sidebar from "./pages/dashboard/Sidebar";
@@ -24,6 +24,7 @@ function App() {
         <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
         <Route path="/signup" element={<Layout><Signup /></Layout>} />
         <Route path="/special" element={<LoginPage />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
@@ -51,6 +52,7 @@ function DashboardLayout({ children }) {
       <div className="dashboard-content">
         {children}
       </div>
+      <Footer />
     </>
   );
 }

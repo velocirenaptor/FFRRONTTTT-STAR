@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/navbar.css';
+import '../css/navbar.css';  // Adjust the path as necessary
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faShirt, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faShirt, faPalette, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdOutlineSmartphone, MdShoppingCart } from "react-icons/md";
 
 const Navbar = () => {
@@ -21,35 +21,28 @@ const Navbar = () => {
         <button className="Navbar-link btn" onClick={() => navigateTo("/")}>
           Home <FontAwesomeIcon icon={faHome} />
         </button>
-
         <button className="Navbar-link btn" onClick={() => navigateTo("/cases")}>
           Fundas <MdOutlineSmartphone />
         </button>
-
         <button className="Navbar-link btn" onClick={() => navigateTo("/clothing")}>
-         Hoodies&Tees <FontAwesomeIcon icon={faShirt} />
+          Hoodies&Tees <FontAwesomeIcon icon={faShirt} />
         </button>
-
         <button className="Navbar-link btn" onClick={() => navigateTo("/extras")}>
           Otros <FontAwesomeIcon icon={faPalette} />
         </button>
-
         <button className='Navbar-link btn' onClick={() => navigateTo("/signup")}>
-        Iniciar Sesión <FontAwesomeIcon icon={faUser} />
+          Iniciar Sesión <FontAwesomeIcon icon={faUser} />
         </button>
-
         <button className='Navbar-link btn' onClick={() => navigateTo("/cart")}>
-        Carrito <MdShoppingCart />
+          Carrito <MdShoppingCart />
         </button>
-
         <button className='Navbar-link btn' onClick={() => navigateTo("/dashboard")}>
-        Dashboard <MdShoppingCart />
+          Dashboard <MdShoppingCart />
         </button>
-        <span>
-
-        </span>
       </div>
-      <button className="btn" onClick={() => setShowLinks(!showLinks)}>Menu</button>
+      <button className="btn menu" onClick={() => setShowLinks(!showLinks)}>
+        <FontAwesomeIcon icon={showLinks ? faTimes : faBars} />
+      </button>
     </nav>
   );
 };

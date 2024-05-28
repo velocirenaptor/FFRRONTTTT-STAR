@@ -1,0 +1,65 @@
+.profile-settings {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .profile-settings h2 {
+    margin-bottom: 20px;
+  }
+  
+  .profile-settings label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .profile-settings input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .profile-settings img {
+    margin-bottom: 10px;
+  }
+  
+  .profile-settings input[type="text"],
+  .profile-settings input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .profile-settings button {
+    margin-top: 5%;
+    background-color: #ff6c85;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .profile-settings button:hover {
+    background-color: #ff8c9b;
+  }
+  
+  .delete-account {
+    margin-top: 70%;
+  }
+
+  .delete-account button {
+    background-color: transparent;
+    color: #c40000;
+    border: 1px solid #c40000;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .delete-account button:hover {
+    background-color: #c40000;
+    color: #fff;
+  }
