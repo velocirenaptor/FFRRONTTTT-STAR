@@ -1,4 +1,5 @@
 /* navbar.css */
+
 .Navbar {
   display: flex;
   justify-content: space-between;
@@ -11,21 +12,29 @@
   z-index: 1000;
 }
 
+.Navbar .leftSide {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .Navbar .leftSide img {
   cursor: pointer;
-  height: 60px;
+  height: 60px; /* Default logo size */
 }
 
 .Navbar .rightSide {
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out; /* Add transition for smooth effect */
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .Navbar .rightSide.show {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
   transition: all 0.6s ease-in-out; /* Add transition for smooth effect */
 }
@@ -34,7 +43,7 @@
   background: none;
   border: none;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1rem; /* Default button font size */
   margin: 0.5rem 0;
   cursor: pointer;
   display: flex;
@@ -50,12 +59,24 @@
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Default menu button size */
   cursor: pointer;
   display: none;
 }
 
 @media (max-width: 1000px) {
+  .Navbar {
+    flex-direction: column;
+  }
+
+  .Navbar .leftSide {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    position: relative;
+  }
+
   .Navbar .rightSide {
     display: none;
   }
@@ -66,10 +87,26 @@
 
   .Navbar .btn.menu {
     display: block;
+    position: absolute;
+    right: 1rem;
+    font-size: 2rem; /* Increased size for phones */
+  }
+
+  .Navbar .rightSide .btn {
+    font-size: 1.5rem; /* Increased size for phones */
+  }
+
+  .Navbar .leftSide img {
+    height: 50px; /* Adjusted logo size for phones */
+    margin: auto;
   }
 }
 
 @media (min-width: 1000px) {
+  .Navbar {
+    flex-direction: row;
+  }
+
   .Navbar .rightSide {
     display: flex;
   }
@@ -77,4 +114,19 @@
   .Navbar .btn.menu {
     display: none;
   }
+
+  .Navbar .leftSide {
+    justify-content: flex-start;
+  }
+
+  .Navbar .leftSide img {
+    height: 60px; /* Default logo size */
+    margin: 0;
+  }
+}
+
+.Navbar .icon {
+  align-self: flex-end;
+  margin-left: 1rem;
+  font-size: 1.5rem;
 }

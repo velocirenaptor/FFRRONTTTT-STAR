@@ -15,13 +15,13 @@ function Home() {
 
       <section className="shop_section layout_padding">
   <div className="container">
-    <div className="heading_container heading_center">
+    <div className="section-title">
       <h2>Lo más popular</h2>
     </div>
     <DisplayProduct />
-    <div className="btn-box">
-      <a href="">View All Products</a>
-    </div>
+    {/* <div className="btn-box">
+      <a href="">Ver más productos</a>
+    </div> */}
   </div>
 </section>
 
@@ -92,21 +92,11 @@ function Home() {
               <i className="fa-solid fa-paint-roller"></i>
             </svg>
           </div>
-          <div className="detail-box">
-            <h5>
-              Dibujo
-            </h5>
-            <p>
-              manda una fotografía y pide tu dibujo digital.
-            </p>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
     <TestimonialSection />
 
     </div>

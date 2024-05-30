@@ -19,25 +19,25 @@ const Navbar = () => {
       </div>
       <div className={`rightSide ${showLinks ? "show" : ""}`}>
         <button className="Navbar-link btn" onClick={() => navigateTo("/")}>
-          Home <FontAwesomeIcon icon={faHome} />
+          Home <FontAwesomeIcon icon={faHome} className='icon'/>
         </button>
         <button className="Navbar-link btn" onClick={() => navigateTo("/cases")}>
-          Fundas <MdOutlineSmartphone />
+          Fundas <MdOutlineSmartphone className='icon' />
         </button>
         <button className="Navbar-link btn" onClick={() => navigateTo("/clothing")}>
-          Hoodies&Tees <FontAwesomeIcon icon={faShirt} />
+          Hoodies&Tees <FontAwesomeIcon icon={faShirt} className='icon' />
         </button>
         <button className="Navbar-link btn" onClick={() => navigateTo("/extras")}>
-          Otros <FontAwesomeIcon icon={faPalette} />
+          Otros <FontAwesomeIcon icon={faPalette} className='icon' />
         </button>
         <button className='Navbar-link btn' onClick={() => navigateTo("/signup")}>
-          Iniciar Sesión <FontAwesomeIcon icon={faUser} />
+          Iniciar Sesión <FontAwesomeIcon icon={faUser} className='icon'/>
         </button>
         <button className='Navbar-link btn' onClick={() => navigateTo("/cart")}>
-          Carrito <MdShoppingCart />
+          Carrito <MdShoppingCart className='icon'/>
         </button>
-        <button className='Navbar-link btn' onClick={() => navigateTo("/dashboard")}>
-          Dashboard <MdShoppingCart />
+        <button className='Navbar-link btn' onClick={() => navigateTo("/settings")}>
+          Perfil <FontAwesomeIcon icon={faUser} className='icon'/>
         </button>
       </div>
       <button className="btn menu" onClick={() => setShowLinks(!showLinks)}>

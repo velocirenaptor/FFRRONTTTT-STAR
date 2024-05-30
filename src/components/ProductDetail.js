@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import PRODUCTS from '../components/itemList';
 import { MdShoppingCart } from "react-icons/md";
+import { addToCart } from './sessionStorageHelper'; // Import the helper function
 import '../css/productdetail.css';
 
 function ProductDetail() {
@@ -12,6 +13,11 @@ function ProductDetail() {
     return <div>Producto no encontrado</div>;
   }
 
+  const handleAddToCart = () => {
+    addToCart(product);
+    alert('Producto agregado al carrito!');
+  };
+
   return (
     <div className="product-detail">
       <div className="image-column">
@@ -21,7 +27,9 @@ function ProductDetail() {
         <h1>{product.name}</h1>
         <p>{product.description}</p>
         <p className="price">${product.price}</p>
-        <button className="add-to-cart-button"><MdShoppingCart /> Agregar al Carrito</button>
+        <button className="add-to-cart-button" onClick={handleAddToCart}>
+          <MdShoppingCart /> Agregar al Carrito
+        </button>
       </div>
     </div>
   );

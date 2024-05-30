@@ -3,7 +3,7 @@ import "./profile.css"; // Import the CSS file
 
 const ProfileSettings = () => {
   // State variables for user information
-  const [name, setName] = useState("John Doe");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
 
@@ -35,9 +35,9 @@ const ProfileSettings = () => {
 
   return (
     <div className="profile-settings"> {/* Add the class name here */}
-      <h2>Profile Settings</h2>
+      <h2>Ajustes de la Cuenta</h2>
       <div>
-        <label htmlFor="profilePicture">Profile Picture:</label>
+        <label htmlFor="profilePicture">Foto de Perfil:</label>
         <input
           type="file"
           id="profilePicture"
@@ -49,29 +49,31 @@ const ProfileSettings = () => {
         )}
       </div>
       <div>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name" >Nombre:</label>
         <input
           type="text"
           id="name"
           value={name}
           onChange={handleNameChange}
+          placeholder="Ingresa tu nombre"
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Contraseña:</label>
         <input
           type="password"
           id="password"
           value={password}
           onChange={handlePasswordChange}
+          placeholder="Ingresa tu nueva contraseña"
         />
       </div>
       <div>
-      <button onClick={handleSaveChanges}>Save Changes</button>
+      <button onClick={handleSaveChanges}>Guardar Cambios</button>
       </div>
 
       <div className="delete-account">
-        <button onClick={handleDeleteAccount}>Delete Account</button>
+        <button onClick={handleDeleteAccount}>Borrar Cuenta</button>
       </div>
     </div>
   );

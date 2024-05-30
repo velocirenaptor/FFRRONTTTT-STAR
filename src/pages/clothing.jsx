@@ -6,7 +6,7 @@ function Clothing() {
     <div>
   <section className="shop_section layout_padding">
     <div className="container">
-      <div className="heading_container heading_center">
+      <div className="section-title">
         <h2>Hoodies &amp; Tees</h2>
       </div>
       <DisplayProduct />

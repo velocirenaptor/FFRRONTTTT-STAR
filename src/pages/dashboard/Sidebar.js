@@ -14,12 +14,12 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="content">
         <ul>
-        <button className="sidebar-btn" onClick={() => navigateTo("/")}>
-        <FontAwesomeIcon icon={faHome} className='icon'/> Home 
+        <button className="sidebar-btn" onClick={() => navigateTo("/settings")}>
+        <FontAwesomeIcon icon={faUser} className='icon'/> Perfil 
         </button>
 
-        <button className="sidebar-btn" onClick={() => navigateTo("/profile")}>
-        <FontAwesomeIcon icon={faUser} className='icon'/> Perfil 
+        <button className="sidebar-btn" onClick={() => navigateTo("/")}>
+        <FontAwesomeIcon icon={faHome} className='icon'/> Home 
         </button>
         
         <button className="sidebar-btn" onClick={() => navigateTo("/chat")}>
@@ -30,7 +30,7 @@ const Sidebar = () => {
         <FontAwesomeIcon icon={faShoppingCart} className='icon'/> Carrito 
         </button>
 
-        <button className="sidebar-btn" onClick={() => navigateTo("/settings")}>
+        <button className="sidebar-btn" onClick={() => navigateTo("/settings/others")}>
         <FontAwesomeIcon icon={faWrench}className='icon'/>  Configuración 
         </button>
         </ul>

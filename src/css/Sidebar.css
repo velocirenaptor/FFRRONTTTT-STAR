@@ -1,40 +1,58 @@
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    padding: 10px ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+.sidebar .content {
+  padding: 10px;
+}
+
+.sidebar .content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar .content ul li {
+  padding: 10px 0;
+}
+
+.sidebar-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(180, 180, 180);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sidebar-btn:hover {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.sidebar-icon {
+  padding: 5px;
+}
+
+/* Media query for phones */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    margin-top: 0%;
   }
-  
+
   .sidebar .content {
-    padding: 10px;
+    padding: 10px 0;
   }
-  
-  .sidebar .content ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
+
   .sidebar .content ul li {
     padding: 10px 0;
   }
-  
-  .sidebar-btn {
-    background-color: transparent;
-    border: none;
-    color: rgb(180, 180, 180);
-    font-size: 18px;
-    cursor: pointer;
-  }
-
-  .sidebar-btn:hover {
-    background-color: transparent;
-    color: rgb(255, 255, 255);
-  }
-
-  .sidebar-icon {
-    padding: 5px;
-  }
+}

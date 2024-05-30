@@ -1,3 +1,4 @@
+/* Default styles for larger screens */
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -10,7 +11,7 @@ body {
   justify-content: center;
   color: var(--texto); /* Raisin black */
   background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)), url(../../public/assets/fondo.jpg);
-  }
+}
 
 .auth-form-container,
 .login-form,
@@ -18,15 +19,10 @@ body {
   display: flex;
   flex-direction: column;
   background-color: aliceblue;
-}
-
-@media screen and (min-width: 600px) {
-  .auth-form-container {
-    padding: 5rem;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 0.5rem;
-  }
+  padding: 2rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 0.5rem;
 }
 
 label {
@@ -39,6 +35,7 @@ input {
   padding: 1rem;
   border: none;
   border-radius: 10px;
+  width: 100%;
 }
 
 button {
@@ -48,6 +45,7 @@ button {
   border-radius: 10px;
   cursor: pointer;
   color: var(--color-primario); /* Violeta */
+  width: 100%;
 }
 
 button:hover {
@@ -60,4 +58,26 @@ button:hover {
   button-border-color: rgb(70, 35, 151);
   color: rgb(70, 35, 151);
   text-decoration:underline;
+}
+
+/* Media query for phone screens */
+@media screen and (max-width: 600px) {
+  .Signup {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .auth-form-container,
+  .login-form,
+  .register-form {
+    padding: 1rem; /* Adjust padding for smaller screens */
+    margin: 0.5rem 0; /* Adjust margin for smaller screens */
+  }
+
+  input {
+    padding: 0.8rem; /* Adjust input padding for smaller screens */
+  }
+
+  button {
+    padding: 15px; /* Adjust button padding for smaller screens */
+  }
 }

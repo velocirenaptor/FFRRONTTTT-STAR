@@ -3,11 +3,12 @@ footer {
   padding: 20px;
   color: rgb(141, 141, 141);
   font-size: 14px;
-  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  position: relative;
+  margin-bottom: 0%;
 }
 
 

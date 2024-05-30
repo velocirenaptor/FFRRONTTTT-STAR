@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,8 +38,48 @@
   }
 }
 
-footer{
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  margin-left: 100%;  
+  padding: 100%;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+}
+
+/* Add CSS styles for Navbar, Footer, and other components here */
+
+.content {
+  padding: 20px;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+}
+
+/* Media query for medium screens */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .content {
+    padding: 15px;
+  }
+}
+
+/* Media query for large screens */
+@media screen and (min-width: 992px) {
+  .content {
+    padding: 20px;
+  }
 }

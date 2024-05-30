@@ -1,11 +1,14 @@
 .profile-settings {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
+  max-width: 500px;
+  width: 100%;
+  margin: 0 20px 0 0; /* Adjust margin to give some space from the right edge */
+  padding: 70px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+
   .profile-settings h2 {
     margin-bottom: 20px;
   }
