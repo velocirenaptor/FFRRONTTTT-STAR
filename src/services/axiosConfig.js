@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { error } from 'jquery';
 
 const axiosConfig = axios.create({
     baseURL: 'http://localhost:3001/api/',

@@ -1,4 +1,4 @@
-import React, { Children, createContext, useState,useEffect } from 'react';
+import React, {createContext, useState,useEffect } from 'react';
 import axiosConfig from './axiosConfig';
 
 const authContext = createContext();
@@ -7,7 +7,7 @@ const AuthProvider = ({children})=>{
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
 
-    useEffect(()=>{
+        useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
         const refreshToken = localStorage.getItem('refreshToken');
         if(accessToken && refreshToken){
@@ -21,11 +21,11 @@ const AuthProvider = ({children})=>{
                 setUser(null);
             })
         }
-    }),[];
+    },[]);
 
     const register = (username, email, password)=>{
         try{
-            const response = axiosConfig.post('auth/register',{email,password})
+            const response = axiosConfig.post('auth/register',{username,email,password})
             const {accessToken, refreshToken} = response.data;
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('refreshToken', refreshToken);
@@ -65,3 +65,4 @@ const AuthProvider = ({children})=>{
 }
 
 export {authContext, AuthProvider};
+

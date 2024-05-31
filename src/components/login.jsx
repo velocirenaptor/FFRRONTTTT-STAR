@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { authContext } from "../services/authServices";
 
 export const Login = (props) => {
@@ -21,7 +21,7 @@ export const Login = (props) => {
     return (
         <div className="auth-form-container">
             <h2>Iniciar Sesión</h2>
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={HandleLogin}>
                 <label htmlFor="email">Ingresar correo</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="tucorreo@ejemplo.com" id="email" name="email" />
                 <label htmlFor="password">Ingresar Contraseña</label>

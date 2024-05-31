@@ -25,7 +25,6 @@ function Home() {
   </div>
 </section>
 
-
 <section className="why_section layout_padding">
   <div className="container">
     <div className="heading_container heading_center">
