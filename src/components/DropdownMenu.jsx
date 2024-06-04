@@ -11,7 +11,7 @@ const DropdownMenu = ({ options, selectedOption, setSelectedOption }) => {
   return (
     <div className="dropdown">
       <button className="dropdown-btn" onClick={() => setIsOpen(!isOpen)}>
-        {selectedOption ? options.find(option => option.value === selectedOption).label : 'Select an option'}
+        {selectedOption ? options.find(option => option.value === selectedOption).label : 'Selecciona la categoría'}
       </button>
       {isOpen && (
         <div className="dropdown-content">

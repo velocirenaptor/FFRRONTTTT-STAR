@@ -32,6 +32,21 @@ ul {
   padding: 0;
 }
 
+.delete-btn {
+  padding: 10px 20px;
+  color: #c82333;
+  background-color: transparent;
+  border: 1px solid #c82333; /* Match the border color to the text color */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  color: white;
+}
+
 .sidebar-btn {
   display: flex;
   align-items: center;

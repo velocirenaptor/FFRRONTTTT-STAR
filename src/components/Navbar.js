@@ -18,6 +18,7 @@ const Navbar = () => {
         <img src='https://res.cloudinary.com/dd9lx460j/image/upload/v1715059850/logo3_u3dnzv.png' alt='Starcases' className='Navbar-logo' onClick={() => navigateTo("/")} />
       </div>
       <div className={`rightSide ${showLinks ? "show" : ""}`}>
+        <ul>
         <button className="Navbar-link btn" onClick={() => navigateTo("/")}>
           Home <FontAwesomeIcon icon={faHome} className='icon'/>
         </button>
@@ -30,6 +31,8 @@ const Navbar = () => {
         <button className="Navbar-link btn" onClick={() => navigateTo("/extras")}>
           Otros <FontAwesomeIcon icon={faPalette} className='icon' />
         </button>
+        </ul>
+        <ul>
         <button className='Navbar-link btn' onClick={() => navigateTo("/signup")}>
           Iniciar Sesión <FontAwesomeIcon icon={faUser} className='icon'/>
         </button>
@@ -39,6 +42,7 @@ const Navbar = () => {
         <button className='Navbar-link btn' onClick={() => navigateTo("/settings")}>
           Perfil <FontAwesomeIcon icon={faUser} className='icon'/>
         </button>
+        </ul>
       </div>
       <button className="btn menu" onClick={() => setShowLinks(!showLinks)}>
         <FontAwesomeIcon icon={showLinks ? faTimes : faBars} />
