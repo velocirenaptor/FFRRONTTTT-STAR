@@ -1,4 +1,13 @@
-/* displayproduct.css */
+.products h3 {
+  font-size: medium;
+  text-decoration: none;
+}
+
+.products p {
+  font-weight: 600;
+  color: #7a0aa7;
+  text-decoration: none;
+}
 
 .products {
   display: grid;
@@ -7,9 +16,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  text-decoration: none;
 }
-
-/* product.css */
 
 @keyframes expand {
   0% {
@@ -38,15 +46,24 @@
 }
 
 .product img {
-  max-width: 100%;
+  max-width: 100px;
   height: auto;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .product-link {
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.btn button {
+  margin: 5px;
 }
 
 /* Responsive Styles */

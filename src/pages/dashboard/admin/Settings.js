@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from '../Sidebar'
 import DropdownMenu from '../../../components/DropdownMenu'
-import PRODUCTS from '../../../components/itemList';
+import {PRODUCTS} from '../../../components/itemList';
 import './Settings.css'
 
 const Settings = () => {

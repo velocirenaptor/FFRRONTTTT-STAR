@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/style.css';
 import '../css/bootstrap.css';
 import '../css/responsive.css';
-import { BrowserRouter } from 'react-router-dom';
 import DisplayProduct from '../components/DisplayProduct';
 import SliderSection from '../components/SliderSection';
 import TestimonialSection from '../components/Testimonial';
@@ -19,9 +18,6 @@ function Home() {
       <h2>Lo más popular</h2>
     </div>
     <DisplayProduct />
-    {/* <div className="btn-box">
-      <a href="">Ver más productos</a>
-    </div> */}
   </div>
 </section>
 

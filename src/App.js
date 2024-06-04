@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // Remove useNavigate
 import Fundas from './pages/fundas';
 import Home from './pages/home';
 import Clothing from './pages/clothing';
 import Extras from './pages/extras';
+import AdminLogin from "./pages/dashboard/admin/AdminLogin";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Signup from "./pages/signup";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/product/:id" element={<Layout><ProductDetail addToCart={addToCart} /></Layout>} />
         <Route path="/signup" element={<LoginPage><Signup /></LoginPage>} />
         <Route path="/cart" element={<Layout><Cart cart={cart} /></Layout>} />
+        <Route path="/login/admin" element={<AdminLogin />} /> {/* Remove handleCopyAndNavigate prop */}
         
         <Route path="/dashboard/*" element={<AdminDashboardLayout />}>
           <Route path="settings" element={<Settings />} />

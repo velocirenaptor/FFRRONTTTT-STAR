@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import '../css/creator.css';
 
 const AdminCreator = () => {
   const [adminData, setAdminData] = useState(null);
+  const [copiedUser, setCopiedUser] = useState(false);
+  const [copiedToken, setCopiedToken] = useState(false);
+  const [copiedUrl, setCopiedUrl] = useState(false);
 
   const mockCreateAdmin = () => {
     const user = generateRandomUser();
@@ -22,9 +28,22 @@ const AdminCreator = () => {
     return `http://localhost:3000/register/${Math.random().toString(36).substr(2, 8)}`;
   };
 
-  const handleCopy = (text) => {
+  const handleCopy = (text, setStateFunc) => {
     navigator.clipboard.writeText(text);
-    alert('Copied to clipboard!');
+    setStateFunc(true); // Set as copied
+    // Reset copied state after 2 seconds
+    setTimeout(() => {
+      setStateFunc(false);
+    }, 2000);
+  };
+
+  const handleCopyAndNavigate = (text, setStateFunc) => {
+    navigator.clipboard.writeText(text);
+    setStateFunc(true); // Set as copied
+    // Reset copied state after 2 seconds
+    setTimeout(() => {
+      setStateFunc(false);
+    }, 2000);
   };
 
   return (
@@ -35,9 +54,24 @@ const AdminCreator = () => {
       {adminData && (
         <div>
           <h2>Datos del nuevo administrador</h2>
-          <p>Usuario: {adminData.user} <button onClick={() => handleCopy(adminData.user)}>Copiar</button></p>
-          <p>Token: {adminData.token} <button onClick={() => handleCopy(adminData.token)}>Copiar</button></p>
-          <p>URL de registro: {adminData.url} <button onClick={() => handleCopy(adminData.url)}>Copiar</button></p>
+          <p>Usuario:
+          <span />
+             {adminData.user}
+             <p>
+             <button className='copy-btn' onClick={() => handleCopy(adminData.user, setCopiedUser)}>{copiedUser ? <><FontAwesomeIcon icon={faCheck} /> Copiado</> : 'Copiar'}</button></p>
+            </p>
+          <p>Token:
+          <span />
+              {adminData.token} 
+            <p>
+              <button className='copy-btn' onClick={() => handleCopy(adminData.token, setCopiedToken)}>{copiedToken ? <><FontAwesomeIcon icon={faCheck} /> Copiado</> : 'Copiar'}</button></p>
+          </p>
+          <p>URL de registro: 
+          <span />
+            {adminData.url}
+            <p>
+            <button className='copy-btn' onClick={() => handleCopyAndNavigate(adminData.url, setCopiedUrl)}>{copiedUrl ? <><FontAwesomeIcon icon={faCheck} /> Copiado</> : 'Copiar'}</button></p>
+          </p>
         </div>
       )}
     </div>
