@@ -1,8 +1,8 @@
-// Cart.js
-
 import React, { useState, useEffect } from 'react';
-import { getCart, clearCart } from './sessionStorageHelper'; // Import clearCart
+import { getCart, clearCart, removeFromCart } from './sessionStorageHelper';
 import '../css/cart.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -15,6 +15,11 @@ const Cart = () => {
   const handleEmptyCart = () => {
     clearCart();
     setCart([]);
+  };
+
+  const handleRemoveItem = (itemId) => {
+    removeFromCart(itemId);
+    setCart(cart.filter(item => item.id !== itemId));
   };
 
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
@@ -30,13 +35,14 @@ const Cart = () => {
               <h2>{item.name}</h2>
               <p>${item.price}</p>
             </div>
+            <button onClick={() => handleRemoveItem(item.id)} className="remove-item-button"><FontAwesomeIcon icon={faXmark} /></button>
           </li>
         ))}
       </ul>
       <h2 className="cart-total">Total: ${totalPrice.toFixed(2)}</h2>
       <div className="cart-actions">
-        <button className="checkout-button">Checkout</button>
-        <button onClick={handleEmptyCart} className="empty-cart-button">Empty Cart</button>
+        <button className="checkout-button">Enviar Pedido</button>
+        <button onClick={handleEmptyCart} className="empty-cart-button">Vaciar Carrito</button>
       </div>
     </div>
   );

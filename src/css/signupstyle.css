@@ -54,7 +54,6 @@ button:hover {
 
 .link-btn {
   background-color: rgb(252, 255, 255);
-  button-border-color: rgb(70, 35, 151);
   color: rgb(70, 35, 151);
   text-decoration:underline;
 }
