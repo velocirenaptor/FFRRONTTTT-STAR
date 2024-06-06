@@ -1,68 +1,75 @@
-.profile-settings {
-  max-width: 500px;
-  width: 100%;
-  margin: 0 20px 0 0; /* Adjust margin to give some space from the right edge */
-  padding: 70px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; /* Ensure padding and border are included in the width */
+/* profile.css */
+
+.profile-container {
+  display: flex;
+  position: relative;
 }
 
+.sidebar {
+  width: 250px; /* Adjust width as needed */
+  flex-shrink: 0;
+}
 
-  .profile-settings h2 {
-    margin-bottom: 20px;
-  }
-  
-  .profile-settings label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .profile-settings input[type="file"] {
-    margin-bottom: 10px;
-  }
-  
-  .profile-settings img {
-    margin-bottom: 10px;
-  }
-  
-  .profile-settings input[type="text"],
-  .profile-settings input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .profile-settings button {
-    margin-top: 5%;
-    background-color: #ff6c85;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .profile-settings button:hover {
-    background-color: #ff8c9b;
-  }
-  
-  .delete-account {
-    margin-top: 70%;
-  }
+.profile-settings {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px; /* Adjust max-width as needed */
+}
 
-  .delete-account button {
-    background-color: transparent;
-    color: #c40000;
-    border: 1px solid #c40000;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.profile-settings h2 {
+  margin-bottom: 20px;
+}
 
-  .delete-account button:hover {
-    background-color: #c40000;
-    color: #fff;
-  }
+.profile-settings div {
+  margin-bottom: 20px;
+}
+
+.profile-settings label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-settings input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.profile-settings button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-settings button:hover {
+  background-color: #218838;
+}
+
+.profile-settings .profile-picture {
+  display: block;
+  margin-top: 10px;
+  max-width: 100px; /* Adjust size as needed */
+  border-radius: 50%;
+}
+
+.delete-account button {
+  margin-top: 10%;
+  color: #c82333;
+  background-color: transparent;
+  border-style:groove;
+  border-width: 1px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.delete-account button:hover {
+  background-color: #c82333;
+  color: white;
+}
+

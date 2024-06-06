@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Signup from "./pages/signup";
 import Sidebar from "./pages/dashboard/Sidebar";
 import ProfileSettings from "./pages/dashboard/user/Profile";
-import Settings from "./pages/dashboard/Settings";
+import Settings from "./pages/dashboard/admin/Settings.js";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart.jsx";
 import './css/Dashboard.css'
@@ -38,43 +38,37 @@ function App() {
         <Route path="/signup" element={<LoginPage><Signup /></LoginPage>} />
 
         <Route path="/cart" element={<Layout> <Cart cart={cart} /> </Layout>} />
-{/* 
-        <Route path="/settings" element={<DashboardLayout />}> */}
         
-        <Route path="/settings/*" element={<DashboardLayout />}>
-          {/* Nested routes for dashboard pages */}
-          <Route path="profile" element={<ProfileSettings />} />
-          <Route path="others" element={<Settings />} />
-          {/* Add more routes for dashboard pages */}
-        
+        <Route path="/dashboard/*" element={<AdminDashboardLayout />}>
+          <Route path="settings" element={<Settings />} />
+        </Route>
 
+        <Route path="/settings/*" element={<UserDashboardLayout />}>
+          <Route path="profile" element={<ProfileSettings />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-function DashboardLayout({ children }) {
-  const pathname = window.location.pathname;
-  let content;
-
-  if (pathname === "/settings") {
-    content = <ProfileSettings />;
-  } else {
-    content = <Settings />;
-  }
-
+function UserDashboardLayout() {
   return (
     <>
-      <Sidebar />
-      <div className="content">
-        {content}
-      </div>
+        <ProfileSettings />
+        <Footer />
     </>
   );
 }
 
 
+function AdminDashboardLayout() {
+  return (
+    <>
+        <Settings />
+        <Footer />
+    </>
+  );
+}
 
 function Layout({ children }) {
   return (
@@ -85,8 +79,6 @@ function Layout({ children }) {
     </>
   );
 }
-
-
 
 function LoginPage() {
   return (

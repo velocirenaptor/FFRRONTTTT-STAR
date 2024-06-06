@@ -17,3 +17,27 @@ export const getProductById = async (id) =>{
         console.error("getProductById failed", error);
     }
 }
+
+
+export const createProduct = async (product)=>{
+    try{
+        const response = await axiosConfig.post('productos/createproduct', product);
+        return response.data;
+    }catch(error){
+        console.error("createProduct failed", error);
+
+    }
+    
+}
+
+export const updateProduct = async (product)=>{
+    try{
+        const response = await axiosConfig.put('productos/updateproduct', product);
+        return response.data;
+    }catch(error){
+        console.error("updateProduct failed", error);
+    }
+}
+
+export default {getAllProducto, getProductById, createProduct};
+
