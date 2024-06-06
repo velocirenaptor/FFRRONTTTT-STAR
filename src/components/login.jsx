@@ -4,10 +4,10 @@ import { authContext } from "../services/authServices";
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const {login } = useContext(authContext);
 
-    const HandleLogin = async (e)=>{
+    const HandleLogin = async (e)=> {
         e.preventDefault();
         const success = await login(email,password);
         if(!success){
