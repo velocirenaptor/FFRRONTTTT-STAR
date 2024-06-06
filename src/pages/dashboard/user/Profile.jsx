@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./profile.css"; // Import the CSS file
 import Sidebar from "../Sidebar";
 
+const navigateTo = (path) => {
+  window.location.href = path;
+};
+
 const ProfileSettings = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -21,10 +25,6 @@ const ProfileSettings = () => {
 
   const handleSaveChanges = () => {
     alert("Changes saved successfully!");
-  };
-
-  const handleDeleteAccount = () => {
-    alert("Account deleted s      <Footer />uccessfully!");
   };
 
   return (
@@ -67,12 +67,9 @@ const ProfileSettings = () => {
         <div>
           <button onClick={handleSaveChanges}>Guardar Cambios</button>
         </div>
-        <div className="delete-account">
-          <button onClick={handleDeleteAccount}>Borrar Cuenta</button>
-        </div>
       </div>
     </div>
-);
+  );
 };
 
 export default ProfileSettings;

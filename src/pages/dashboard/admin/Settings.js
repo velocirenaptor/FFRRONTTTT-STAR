@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import Sidebar from '../Sidebar'
 import DropdownMenu from '../../../components/DropdownMenu'
-import PRODUCTS from '../../../components/itemList';
+import {PRODUCTS} from '../../../components/itemList';
 import './Settings.css'
 
 const Settings = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const options = [
     { value: 'cases', label: 'Fundas' },
-    { value: 'clothing', label: 'Clothing 2' },
+    { value: 'clothing', label: 'Clothing' },
     { value: 'extras', label: 'Otros' },
   ];
 
@@ -57,31 +57,45 @@ const Settings = () => {
         </div>
         <div className='delete-item'>
           <h2>
-            Eliminar Un Item
+            Editar Productos
           </h2>
 
           <div className='item-list'>
             <ul>
+            <li className='list-header'>
+                  <h4>
+                    <span>Imagen</span>
+                    <span>Nombre</span>
+                    <span>Precio</span>
+                    <span>Categoría</span>
+                    <span>Acciones</span>
+                  </h4>
+                </li>
+            </ul>
+            <ul>
               {PRODUCTS.map((product) => (
+
                 <li key={product.id}>
-                  {product.name}
-                  {product.price}
-                  {product.category}
                   <img src={product.image} alt={product.name} />
+                  <span>
+                  {product.name}
+                  </span>
+                  <span>
+                  {product.price}
+                  </span>
+                  <span>
+                  {product.category}
+                  </span>
+                  <div className='btn'>
                   <button className='edit-product'>Editar</button>
+                  <button className='remove-product'>Remover</button>
                   <button className='delete-product'>Eliminar</button>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
 
-        </div>
-
-        <div className='add-admin'>
-          <h2>
-            Agregar Administrador
-          </h2>
-          <button className='add-admin'> Añadir Administrador</button>
         </div>
       </div>
     </div>

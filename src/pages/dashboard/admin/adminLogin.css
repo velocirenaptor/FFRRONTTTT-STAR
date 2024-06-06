@@ -1,0 +1,59 @@
+.AdminLogin {
+  background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)), url(../../../../public/assets/fondo.jpg);
+  height: 100vh; /* Ensure the element has a height to display the background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-login-container {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color for the button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker shade of blue on hover */
+}

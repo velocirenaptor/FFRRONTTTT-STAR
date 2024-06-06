@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import PRODUCTS from '../components/itemList';
+import {PRODUCTS} from '../components/itemList';
 import { MdShoppingCart } from "react-icons/md";
 import { addToCart } from './sessionStorageHelper'; // Import the helper function
 import '../css/productdetail.css';

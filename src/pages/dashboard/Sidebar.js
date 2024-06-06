@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faComment, faWrench, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faComment, faWrench, faShoppingCart, faBars, faTimes, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 import '../../css/Sidebar.css'; 
 
 const Sidebar = () => {
@@ -21,7 +21,7 @@ const Sidebar = () => {
       </button>
       <div className={`content ${showLinks ? 'show' : ''}`}>
         <ul>
-          <button className="sidebar-btn" onClick={() => navigateTo("/settings")}>
+          <button className="sidebar-btn" onClick={() => navigateTo("/settings/profile")}>
             <FontAwesomeIcon icon={faUser} className='icon' /> Perfil 
           </button>
           <button className="sidebar-btn" onClick={() => navigateTo("/")}>
@@ -36,6 +36,16 @@ const Sidebar = () => {
           <button className="sidebar-btn" onClick={() => navigateTo("/dashboard/settings")}>
             <FontAwesomeIcon icon={faWrench} className='icon' /> Configuración 
           </button>
+          <button className="sidebar-btn" onClick={() => navigateTo("/dashboard/admin")}>
+          <FontAwesomeIcon icon={faPeopleGroup} className='icon' /> Administradores 
+          </button>
+        </ul>
+        <ul>
+        <div className="delete-account">
+          <button onClick={() => navigateTo("/settings/delete_account")} className='delete-btn'>
+            Borrar Cuenta
+          </button>
+        </div>
         </ul>
       </div>
     </div>

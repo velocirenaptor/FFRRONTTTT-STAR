@@ -16,7 +16,7 @@
   color: #333;
 }
 
-.add-item, .delete-item, .add-admin {
+.section {
   margin-bottom: 20px;
   padding: 20px;
   background-color: #fff;
@@ -24,12 +24,12 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.add-item h2, .delete-item h2, .add-admin h2 {
+.section h2 {
   margin-bottom: 20px;
 }
 
 /* Input and label styling */
-.item, .description, .price, .image, .category {
+.form-group {
   margin-bottom: 20px;
 }
 
@@ -88,21 +88,44 @@ input[type="file"] {
   background-color: #ddd;
 }
 
+/* List styling */
+.list-header {  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+}
+
+.list-header h4 {
+  font-size: 16px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.list-header h4 span {
+  flex: 1;
+  text-align: center;
+}
+
 /* Button styling */
 button {
   padding: 10px 15px;
+  margin: 5px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.add-product, .edit-product, .delete-product, .add-admin {
-  background-color: #007bff;
+.add-product, .edit-product, .remove-product, .delete-product, .add-admin {
+  background-color: #8b6cfc;
   color: white;
 }
 
-.add-product:hover, .edit-product:hover, .delete-product:hover, .add-admin:hover {
-  background-color: #0056b3;
+.add-product:hover, .edit-product:hover,  remove-product:hover, .delete-product:hover, .add-admin:hover {
+  background-color: #6d4ce6;
 }
 
 .edit-product, .delete-product {
@@ -110,7 +133,12 @@ button {
 }
 
 .delete-product {
-  background-color: #dc3545;
+  color: #c82333;
+  border-radius: 10px;
+  border-color: #c82333;
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
 }
 
 .delete-product:hover {
@@ -132,8 +160,8 @@ button {
 }
 
 .item-list img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 4px;
   margin-right: 10px;

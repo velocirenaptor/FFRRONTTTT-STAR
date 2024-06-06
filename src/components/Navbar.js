@@ -36,7 +36,7 @@ const Navbar = () => {
         <button className='Navbar-link btn' onClick={() => navigateTo("/cart")}>
           Carrito <MdShoppingCart className='icon'/>
         </button>
-        <button className='Navbar-link btn' onClick={() => navigateTo("/settings")}>
+        <button className='Navbar-link btn' onClick={() => navigateTo("/settings/profile")}>
           Perfil <FontAwesomeIcon icon={faUser} className='icon'/>
         </button>
       </div>
