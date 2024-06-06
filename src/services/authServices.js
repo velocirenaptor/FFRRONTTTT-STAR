@@ -15,6 +15,7 @@ const AuthProvider = ({children})=>{
             .then(response=>{
                 setIsAuthenticated(true);
                 setUser(response.data.user);
+                
             })
             .catch(()=>{
                 setIsAuthenticated(false);
