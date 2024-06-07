@@ -1,69 +1,51 @@
-import React, {createContext, useState,useEffect } from 'react';
-import axiosConfig from './axiosConfig';
 
-const authContext = createContext();
+import axios from 'axios';
 
-const AuthProvider = ({children})=>{
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState(null);
 
-        useEffect(() => {
-        const accessToken = localStorage.getItem('accessToken');
-        const refreshToken = localStorage.getItem('refreshToken');
-        if(accessToken && refreshToken){
-            axiosConfig.get('auth/profile')
-            .then(response=>{
-                setIsAuthenticated(true);
-                setUser(response.data.user);
-                
-            })
-            .catch(()=>{
-                setIsAuthenticated(false);
-                setUser(null);
-            })
-        }
-    },[]);
+const API_URL = 'http://localhost:3001/api/auth';
 
-    const register = (username, email, password)=>{
-        try{
-            const response = axiosConfig.post('auth/register',{username,email,password})
-            const {accessToken, refreshToken} = response.data;
-            localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('refreshToken', refreshToken);
-            setIsAuthenticated(true);
-            setUser(response.data.user);
-            return true;
-        }catch(error){
-            console.error("login failed", error);
-            return false;
-        }
+export const register = async (username,email, password) =>{
+    try{
+        const response = await axios.post(`${API_URL}/register`,{
+            username,
+            email,
+            password,
+        });
+        const {accesToken, refreshToken} = response.data;
+        window.location.href = '/';
+        return {accesToken, refreshToken};
+    }catch(error){
+        throw error;
     }
-    const login = async (email, password)=>{
-        try{
-            const response = await axiosConfig.post('auth/login',{email,password});
-            const {accessToken, refreshToken} = response.data;
-            localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('refreshToken', refreshToken);
-            setIsAuthenticated(true);
-            setUser(response.data.user);
-            return true;
-        }catch(error){
-            console.error("login failed", error);
-            return false;
-        }
+};
+
+export const login = async (email, password) =>{
+    try{
+        const response = await axios.post(`${API_URL}/login`,{
+            email,
+            password,
+        });
+        const { accessToken, refreshToken} = response.data;
+        window.location.href = '/';
+        return {accessToken, refreshToken};
+    }catch(error){
+        throw error;
     }
-    const logout = ()=>{
-        localStorage.removeItem('accessToken');
+};
+
+const logout = async (user_id) =>{
+    try{
+        localStorage.removeItem('accesToken');
         localStorage.removeItem('refreshToken');
-        setIsAuthenticated(false);
-        setUser(null);
+        window.location.href = '/';
+
+    }catch(error){
+        throw error;
     }
-    return(
-        <authContext.Provider value={{isAuthenticated, user, register, login, logout}}>
-            {children}
-        </authContext.Provider>
-    )
 }
 
-export {authContext, AuthProvider};
-
+export default { 
+    register,
+    login,
+    logout,
+};

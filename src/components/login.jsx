@@ -1,23 +1,25 @@
-import React, { useState,useContext } from "react";
-import { authContext } from "../services/authServices";
+import React, { useState} from 'react';
+import  {login} from "../services/authServices";
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const {login } = useContext(authContext);
+    const [error, setError] = useState('');
 
     const HandleLogin = async (e)=> {
         e.preventDefault();
-        const success = await login(email,password);
-        if(!success){
-            setError('Usuario o contraseña incorrectos');
+        const {accessToken,refreshToken} = await login(email,password);
+        console.log('AcessToken:',accessToken);
+        console.log('RefreshToken:',refreshToken);
+        localStorage.setItem('accessToken',accessToken);
+        localStorage.setItem('refreshToken',refreshToken);
+        if(!accessToken || !refreshToken){
+           error=setError('Usuario o contraseña incorrectos');
         }else{
             window.location.href = '/';
         
         }
     }
-
     return (
         <div className="auth-form-container">
             <h2>Iniciar Sesión</h2>
@@ -32,3 +34,7 @@ export const Login = (props) => {
         </div>
     )
 }
+
+export default Login;
+
+

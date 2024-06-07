@@ -1,21 +1,23 @@
 import React, { useState,useContext } from "react";
 
-import {authContext} from '../services/authServices';
-
 import {register} from '../services/authServices';
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    const [username, setName] = useState('');
     const [error, setError] = useState('');
-    const {register } = useContext(authContext);
 
 
     const handleRegister = async (e) =>{
         e.preventDefault();
-        const success = await register(name,email,password);
-        if(!success){
+        const {accessToken,refreshToken} = await register(username,email,password);
+        console.log('Access Token:',accessToken);
+        console.log('Refresh Token:',refreshToken);
+        localStorage.setItem('accessToken',accessToken);
+        localStorage.setItem('refreshToken',refreshToken);
+        if(!accessToken || !refreshToken){
+
             setError('No se pudo crear la cuenta');
         }else{
             window.location.href = '/';
@@ -27,7 +29,7 @@ export const Register = (props) => {
             <h2>Registrarse</h2>
         <form className="register-form" onSubmit={handleRegister}>
             <label htmlFor="name">Nombre</label>
-            <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="Escribe tu nombre" />
+            <input value={username} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="Escribe tu nombre" />
             <label htmlFor="email">Correo</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="tucorreo@ejemplo.com" id="email" name="email" />
             <label htmlFor="password">Contraseña</label>
@@ -39,4 +41,4 @@ export const Register = (props) => {
     )
 }
 
-
+export default Register;

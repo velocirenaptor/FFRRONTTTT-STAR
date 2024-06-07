@@ -5,6 +5,7 @@ import {getAllProducto,getProductById} from '../services/productServices';
 
 
 
+
 export const Product = (props) => {
     const {id, name, description, price, image} = props.data;
     return <div className='product'>
