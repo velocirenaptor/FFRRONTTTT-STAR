@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {register} from '../services/authServices';
+
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');

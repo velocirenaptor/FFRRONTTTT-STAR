@@ -1,21 +1,15 @@
 import React, { useState } from "react";
-import { authContext } from "../services/authServices";
+
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const {login } = useContext(authContext);
+    
 
-    const HandleLogin = async (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const success = await login(email,password);
-        if(!success){
-            setError('Usuario o contraseña incorrectos');
-        }else{
-            window.location.href = '/';
-        
-        }
+        console.log(email);
     }
 
     return (
