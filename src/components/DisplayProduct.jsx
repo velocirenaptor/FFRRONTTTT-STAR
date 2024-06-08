@@ -20,7 +20,7 @@ function DisplayProduct() {
   return (
     <div>
       <section className="shop_section layout_padding">
-        <div className="container">
+        <div className="container products">
           {idsToShow.map(id => (
             <FilterByID key={id} products={shuffledProducts} id={id} />
           ))}
