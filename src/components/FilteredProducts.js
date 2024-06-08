@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/displayproducts.css';
+
 const FilteredProducts = ({ products, category }) => {
   return (
     <div className="products">

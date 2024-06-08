@@ -22,10 +22,23 @@ export const getAllProduct = async () =>{
     }
 }
 
-export const getProductById = async (id) =>{
+export const getProductById = async (Id) =>{
+   const id= Number(Id)
     try{
-        const response = await axios.get(`${API_URL}/getproductbyid/${id}`);
-        return response.data;
+        const response = await axios.post(`${API_URL}/getproductbyid`,{id});
+        const product = response.data.map(product=>({
+            id: product.id,
+            name: product.name, 
+            description: product.description,
+            price: product.price,
+            ps_product_image: product.ps_product_image && product.ps_product_image.length>0?[
+                {
+                    imagen_url: product.ps_product_image[0].imagen_url
+                }
+            ]:[]
+        }));
+
+        return product;
     }catch(error){
         console.error("getProductById failed", error);
     }

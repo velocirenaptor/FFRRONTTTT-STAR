@@ -23,5 +23,4 @@ const FilterByID = ({ products, id }) => {
     </div>
   );
 };
-
 export default FilterByID;

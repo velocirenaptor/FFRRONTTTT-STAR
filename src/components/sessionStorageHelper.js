@@ -19,6 +19,5 @@ export const getCart = () => {
   export const clearCart = () => {
     sessionStorage.removeItem('cart');
   };
-  
 
   
