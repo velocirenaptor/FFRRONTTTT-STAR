@@ -17,7 +17,7 @@ function Home() {
     <div className="section-title">
       <h2>Lo más popular</h2>
     </div>
-    <DisplayProduct />
+    <DisplayProduct/>
   </div>
 </section>
 

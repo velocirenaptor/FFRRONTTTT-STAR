@@ -14,10 +14,11 @@ export const Login = (props) => {
         localStorage.setItem('accessToken',accessToken);
         localStorage.setItem('refreshToken',refreshToken);
         if(!accessToken || !refreshToken){
-           error=setError('Usuario o contraseña incorrectos');
+           setError('Usuario o contraseña incorrectos');
+        }else if(email === '' || password === ''){
+            setError('Por favor llena todos los campos');
         }else{
             window.location.href = '/';
-        
         }
     }
     return (
@@ -36,5 +37,3 @@ export const Login = (props) => {
 }
 
 export default Login;
-
-

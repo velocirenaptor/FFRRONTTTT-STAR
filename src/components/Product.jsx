@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../css/product.css'
-import {getAllProducto,getProductById} from '../services/productServices';
 
 
 
@@ -19,4 +18,6 @@ export const Product = (props) => {
              </div>
         </Link>
         </div>
+
 }
+export default Product;
