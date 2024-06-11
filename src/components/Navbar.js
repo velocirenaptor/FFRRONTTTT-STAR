@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/navbar.css';  // Adjust the path as necessary
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faShirt, faPalette, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -34,7 +33,7 @@ const Navbar = () => {
           Iniciar Sesión <FontAwesomeIcon icon={faUser} className='icon'/>
         </button>
         <button className='Navbar-link btn' onClick={() => navigateTo("/cart")}>
-          Carrito <MdShoppingCart className='icon'/>
+         <MdShoppingCart className='icon'/>
         </button>
         <button className='Navbar-link btn' onClick={() => navigateTo("/settings/profile")}>
           Perfil <FontAwesomeIcon icon={faUser} className='icon'/>

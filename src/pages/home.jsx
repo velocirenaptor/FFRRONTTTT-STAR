@@ -5,6 +5,8 @@ import '../css/responsive.css';
 import DisplayProduct from '../components/DisplayProduct';
 import SliderSection from '../components/SliderSection';
 import TestimonialSection from '../components/Testimonial';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImages, faPaintBrush, faCameraRetro} from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   return (
@@ -38,6 +40,7 @@ function Home() {
             </svg>
           </div>
           <div className="detail-box">
+          <FontAwesomeIcon icon={faImages} className='icon-personalize' />
             <h5>
               Elige
             </h5>
@@ -55,6 +58,7 @@ function Home() {
             </svg>
           </div>
           <div className="detail-box">
+          <FontAwesomeIcon icon={faPaintBrush} className='icon-personalize' />
             <h5>
               Dibujo
             </h5>
@@ -72,6 +76,7 @@ function Home() {
             </svg>
           </div>
           <div className="detail-box">
+          <FontAwesomeIcon icon={faCameraRetro} className='icon-personalize' />
             <h5>
               Collage
             </h5>
@@ -81,20 +86,10 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="col-md-4">
-        <div className="box">
-          <div className="img-box">
-            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.667 490.667" style={{enableBackground: 'new 0 0 490.667 490.667'}} xmlSpace="preserve">
-              <i className="fa-solid fa-paint-roller"></i>
-            </svg>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
     <TestimonialSection />
-
     </div>
   );
 }
