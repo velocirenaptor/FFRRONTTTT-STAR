@@ -40,7 +40,7 @@ function Home() {
             </svg>
           </div>
           <div className="detail-box">
-          <FontAwesomeIcon icon={faImages} className='icon' />
+          <FontAwesomeIcon icon={faImages} className='icon-personalize' />
             <h5>
               Elige
             </h5>
@@ -58,7 +58,7 @@ function Home() {
             </svg>
           </div>
           <div className="detail-box">
-          <FontAwesomeIcon icon={faPaintBrush} className='icon' />
+          <FontAwesomeIcon icon={faPaintBrush} className='icon-personalize' />
             <h5>
               Dibujo
             </h5>
@@ -76,7 +76,7 @@ function Home() {
             </svg>
           </div>
           <div className="detail-box">
-          <FontAwesomeIcon icon={faCameraRetro} className='icon' />
+          <FontAwesomeIcon icon={faCameraRetro} className='icon-personalize' />
             <h5>
               Collage
             </h5>

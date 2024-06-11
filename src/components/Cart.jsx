@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { getCart, clearCart, removeFromCart } from './sessionStorageHelper';
 import '../css/cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faXmark} from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
+  const [customerInfo, setCustomerInfo] = useState('');
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -24,6 +25,20 @@ const Cart = () => {
 
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
+  const isOrderReady = customerInfo.trim() !== '';
+
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
+
+  const handleSendOrder = () => {
+    // Guardar los datos de la orden en localStorage
+    localStorage.setItem('orderInfo', JSON.stringify({ customerInfo, cart, totalPrice }));
+    
+    // Redirigir a la página de confirmación del pedido
+    navigateTo("/order-confirmation");
+  };
+
   return (
     <div className="cart">
       <h1>Carrito</h1>
@@ -40,8 +55,20 @@ const Cart = () => {
         ))}
       </ul>
       <h2 className="cart-total">Total: ${totalPrice.toFixed(2)}</h2>
+      <input
+        type="text"
+        placeholder="Introduce tu información..."
+        value={customerInfo}
+        onChange={(e) => setCustomerInfo(e.target.value)}
+      />
       <div className="cart-actions">
-        <button className="checkout-button">Enviar Pedido</button>
+        <button
+          className={`checkout-button ${isOrderReady ? '' : 'disabled'}`}
+          onClick={handleSendOrder}
+          disabled={!isOrderReady}
+        >
+          Enviar Pedido
+        </button>
         <button onClick={handleEmptyCart} className="empty-cart-button">Vaciar Carrito</button>
       </div>
     </div>

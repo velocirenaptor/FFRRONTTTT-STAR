@@ -17,7 +17,7 @@ import Admin from "./pages/dashboard/admin/Admin.js";
 import './css/Dashboard.css';
 import UserDashboardLayout from "./pages/dashboard/user/UserDashboardLayout.js";
 import AdminDashboardLayout from "./pages/dashboard/admin/AdminDashboardLayout.js";
-
+import OrderConfirmation from "./pages/OrderConfirmation.js";
 function App() {
   const [cart, setCart] = useState([]);
 
@@ -35,7 +35,8 @@ function App() {
         <Route path="/product/:id" element={<Layout><ProductDetail addToCart={addToCart} /></Layout>} />
         <Route path="/signup" element={<LoginPage><Signup /></LoginPage>} />
         <Route path="/cart" element={<Layout><Cart cart={cart} /></Layout>} />
-        <Route path="/login/admin" element={<AdminLogin />} /> {/* Remove handleCopyAndNavigate prop */}
+        <Route path="/order-confirmation" element={<Layout><OrderConfirmation /></Layout>} />
+        <Route path="/login/admin" element={<AdminLogin />} />
         
         <Route path="/dashboard/*" element={<AdminDashboardLayout />}>
           <Route path="settings" element={<Settings />} />
