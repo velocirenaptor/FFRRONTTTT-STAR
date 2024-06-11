@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 
 const API_URL = 'http://localhost:3001/api/products';
@@ -17,11 +18,38 @@ export const getAllProduct = async () =>{
         ]:[]
         }));    
         return products;
+        
     }catch(error){
         console.error("getAllProducto failed", error);
     }
 }
 
+export const getproductByCategory = async (category) =>{
+    try{
+        const response = await axios.post(`${API_URL}/getproductsbycategory`,{category});
+        const products = response.data.map( product=> ({
+            id: product.id,
+            name: product.name, 
+            price: product.price,
+            ps_product_category:product.ps_product_category.length && product.ps_product_category[0].category.name>0 ?[
+                {
+                    category:{
+                        name:product.ps_product_category[0].category.name
+                    }
+                }
+            ]:[],
+            ps_product_image:product.ps_product_image && product.ps_product_image>=0 ? [
+                {
+                  imagen_url: product.ps_product_image[0].imagen_url
+                }
+              ]:[]            
+            }));
+            return products;
+    }catch(error){
+        console.error("getproductByCategory failed", error);
+        return [];
+    }
+}
 export const getProductById = async (Id) =>{
    const id= Number(Id)
     try{
@@ -41,6 +69,9 @@ export const getProductById = async (Id) =>{
         console.error("getProductById failed", error);
     }
 }
+
+
+
 
 export const createProduct = async (product)=>{
     try{
@@ -78,16 +109,6 @@ export const deleteProduct = async (id) =>{
         console.error("deleteProduct failed", error);
     }
 }
-export const getproductByCategory = async (category) =>{
-    try{
-        const response = await axios.get(`${API_URL}/getproductbycategory/${category}`);
-        return response.data;
-    }catch(error){
-        console.error("getproductByCategory failed", error);
-    }
-}
-
-
 
 const productServices = {
     getAllProduct,

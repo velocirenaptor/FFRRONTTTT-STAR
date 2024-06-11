@@ -3,10 +3,15 @@ export const PRODUCTS  = [
         id: '1',
         name: 'Silicón negro TPU',
         description: "Funda personalizable, agrega la imagen que más te guste. El material del borde es independiente del diseño.",
-        image: "https://res.cloudinary.com/dd9lx460j/image/upload/v1715494614/starcases/cases/SC01_cshemz.jpg",
         price: 220,
-        category: "cases"
+        image: [
+            "https://res.cloudinary.com/dd9lx460j/image/upload/v1715494614/starcases/cases/SC01_cshemz.jpg",
+        ],
+        category: [
+            "cases",
+        ]
     },
+    
     
     {
         id: '2',

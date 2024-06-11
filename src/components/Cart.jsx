@@ -1,39 +1,72 @@
 // Cart.js
-
 import React, { useState, useEffect } from 'react';
-import { getCart, clearCart } from './sessionStorageHelper'; // Import clearCart
+import  { getCart,clearCart } from '../services/cartServices';
 import '../css/cart.css';
 
+
+
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState({cartItem: []});
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
-    const storedCart = getCart();
-    setCart(storedCart);
+    const fetchCart = async () => {
+    try{
+      const cartData = await getCart();
+      console.log(cartData.cartItem);
+      if(cartData && Array.isArray(cartData.cartItem)){
+        setCart(cartData);
+        setLoading(false);
+        calcularTotal(cartData.cartItem);
+      }else{
+        setCart({cartItem:[]});
+      }
+    }catch(error){
+      setError(error);
+    }finally{
+      setLoading(false);
+    }
+  };
+  fetchCart();
   }, []);
 
-  const handleEmptyCart = () => {
-    clearCart();
-    setCart([]);
+  const calcularTotal = (cartItems) => {
+    if (!Array.isArray(cartItems)) return 0;
+   
+    const total = cartItems.reduce((sum, item) => {
+      return sum + item.product.price * item.quantity;
+    },0);
+  setTotal(total);
   };
 
-  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const handleEmptyCart = async () => {
+    await clearCart();
+    setCart({cartItem:[]});
+    setTotal(0);
+  };
+  
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div className="cart">
       <h1>Carrito</h1>
       <ul>
-        {cart.map(item => (
-          <li key={item.id} className="cart-item">
-            <img src={item.image} alt={item.name} />
+        {cart.cartItem.map((item,index) => (
+          <li key={index} className="cart-item">
+            <img src={item.product.ps_product_image[0]?.imagen_url} alt={item.product.name} />
             <div>
-              <h2>{item.name}</h2>
-              <p>${item.price}</p>
+              <h2>{item.product.name}</h2>
+              <p>${parseFloat(item.product.price).toFixed(2)}</p>
+              <p>Cantidad: {item.quantity}</p>
             </div>
           </li>
         ))}
       </ul>
-      <h2 className="cart-total">Total: ${totalPrice.toFixed(2)}</h2>
+      <h2 className="cart-total">Total: ${total.toFixed(2)}</h2>
       <div className="cart-actions">
         <button className="checkout-button">Checkout</button>
         <button onClick={handleEmptyCart} className="empty-cart-button">Empty Cart</button>

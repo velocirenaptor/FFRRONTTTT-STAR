@@ -13,6 +13,7 @@ export const register = async (username,email, password) =>{
         });
         const {accesToken, refreshToken} = response.data;
         window.location.href = '/';
+
         return {accesToken, refreshToken};
     }catch(error){
         throw error;
@@ -38,6 +39,15 @@ const logout = async (user_id) =>{
         localStorage.removeItem('accesToken');
         localStorage.removeItem('refreshToken');
         window.location.href = '/';
+
+    }catch(error){
+        throw error;
+    }
+}
+
+const loadCartFromServer = async (user_id) =>{
+    try{
+        const response = await axios.get(`${API_URL}/cart/${user_id}`);
 
     }catch(error){
         throw error;
