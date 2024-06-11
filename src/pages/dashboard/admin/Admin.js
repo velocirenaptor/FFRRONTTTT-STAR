@@ -27,7 +27,6 @@ export default function Admin() {
             </li>
           ))}
         </ul>
-        {/* Aquí integramos el componente AdminCreator */}
         <AdminCreator />
       </div>
     </div>

@@ -63,13 +63,20 @@ const Cart = () => {
               <p>${parseFloat(item.product.price).toFixed(2)}</p>
               <p>Cantidad: {item.quantity}</p>
             </div>
+            <button onClick={() => handleRemoveItem(item.id)} className="remove-item-button"><FontAwesomeIcon icon={faXmark} /></button>
           </li>
         ))}
       </ul>
       <h2 className="cart-total">Total: ${total.toFixed(2)}</h2>
       <div className="cart-actions">
-        <button className="checkout-button">Checkout</button>
-        <button onClick={handleEmptyCart} className="empty-cart-button">Empty Cart</button>
+        <button
+          className={`checkout-button ${isOrderReady ? '' : 'disabled'}`}
+          onClick={handleSendOrder}
+          disabled={!isOrderReady}
+        >
+          Enviar Pedido
+        </button>
+        <button onClick={handleEmptyCart} className="empty-cart-button">Vaciar Carrito</button>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-// sessionStorageHelper.js
 export const getCart = () => {
     const cart = sessionStorage.getItem('cart');
     return cart ? JSON.parse(cart) : [];
