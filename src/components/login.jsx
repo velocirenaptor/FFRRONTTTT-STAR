@@ -4,7 +4,7 @@ import  {login} from "../services/authServices";
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
 
     const HandleLogin = async (e)=> {
         e.preventDefault();
@@ -22,6 +22,7 @@ export const Login = (props) => {
             window.location.href = '/';
         }
     }
+    
     return (
         <div className="auth-form-container">
             <h2>Iniciar Sesión</h2>
