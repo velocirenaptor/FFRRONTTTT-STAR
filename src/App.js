@@ -18,6 +18,7 @@ import './css/Dashboard.css';
 import UserDashboardLayout from "./pages/dashboard/user/UserDashboardLayout.js";
 import AdminDashboardLayout from "./pages/dashboard/admin/AdminDashboardLayout.js";
 import OrderConfirmation from "./pages/OrderConfirmation.js";
+import OrderDashboard from "./pages/dashboard/orders/OrderDashboard.js";
 function App() {
   const [cart, setCart] = useState([]);
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/dashboard/*" element={<AdminDashboardLayout />}>
           <Route path="settings" element={<Settings />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="orders" element={<OrderDashboard />} />
         </Route>
 
         <Route path="/settings/*" element={<UserDashboardLayout />}>

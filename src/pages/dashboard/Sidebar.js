@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faComment, faWrench, faShoppingCart, faBars, faTimes, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
+import { faRectangleList, faHome, faUser, faWrench, faShoppingCart, faBars, faTimes, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 import '../../css/Sidebar.css'; 
 
 const Sidebar = () => {
@@ -27,8 +27,8 @@ const Sidebar = () => {
           <button className="sidebar-btn" onClick={() => navigateTo("/")}>
             <FontAwesomeIcon icon={faHome} className='icon' /> Home 
           </button>
-          <button className="sidebar-btn" onClick={() => navigateTo("/chat")}>
-            <FontAwesomeIcon icon={faComment} className='icon' /> Chat 
+          <button className="sidebar-btn" onClick={() => navigateTo("/dashboard/orders")}>
+            <FontAwesomeIcon icon={faRectangleList} className='icon' /> Órdenes 
           </button>
           <button className="sidebar-btn" onClick={() => navigateTo("/cart")}>
             <FontAwesomeIcon icon={faShoppingCart} className='icon' /> Carrito 
