@@ -23,6 +23,7 @@ function DisplayProduct() {
       try{
         const products=  await getAllProduct();
         setProducts(shuffleArray(products));
+        setLoading(false);
         console.log(products);
       }catch(error){
         setError(error);

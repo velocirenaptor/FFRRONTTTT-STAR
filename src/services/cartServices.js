@@ -15,7 +15,11 @@ export const addToCart = async (productId)=>{
              authorization: `Bearer ${accessToken}`,
         },
     };
-
+    
+    productId = Number(productId);
+    console.log(productId);
+    console.log(config)
+    
     const response = await axios.post(`${API_URL}/addtoCart`,{productId},config);
     console.log(response.data);
     return response.data;
@@ -44,7 +48,6 @@ export const clearCart= async()=>{
     }
 
 }
-
 export const getCart = async() => {
     try{
         const accessToken = localStorage.getItem('accessToken');
@@ -55,9 +58,11 @@ export const getCart = async() => {
         const config ={
             headers:{
                  authorization: `Bearer ${accessToken}`,
-            },
+            }
         }
         const response = await axios.get(`${API_URL}/getCart`,config);
+        console.log(response.data);
+        console.log(response.data.cartItem);
         return response.data;
     }catch(error){
         console.error({'getCart failed': error});

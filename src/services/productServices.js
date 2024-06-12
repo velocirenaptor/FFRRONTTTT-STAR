@@ -17,6 +17,7 @@ export const getAllProduct = async () =>{
             }
         ]:[],
         }));
+        console.log(products);
         return products;
     }catch(error){
         console.error("getAllProduct failed", error);
