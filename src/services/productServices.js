@@ -15,12 +15,11 @@ export const getAllProduct = async () =>{
             {
                 imagen_url: product.ps_product_image[0].imagen_url
             }
-        ]:[]
-        }));    
+        ]:[],
+        }));
         return products;
-        
     }catch(error){
-        console.error("getAllProducto failed", error);
+        console.error("getAllProduct failed", error);
     }
 }
 
@@ -50,8 +49,8 @@ export const getproductByCategory = async (category) =>{
         return [];
     }
 }
-export const getProductById = async (Id) =>{
-   const id= Number(Id)
+export const getProductById = async (productId) =>{
+   const id= Number(productId)
     try{
         const response = await axios.post(`${API_URL}/getproductbyid`,{id});
         const product = response.data;

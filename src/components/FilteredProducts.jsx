@@ -25,6 +25,7 @@ export const FilteredProducts = ({ products, category }) => {
   )
 };
 
+
 //   console.log(products.filter(product => product.ps_product_category[0] && product.ps_product_category[0].category.name === category));
 //   return (
 //     <div className="products">

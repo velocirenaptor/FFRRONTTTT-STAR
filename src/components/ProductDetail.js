@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {getProductById}from '../services/productServices';
 import { MdShoppingCart } from "react-icons/md";
-import { addToCart } from './sessionStorageHelper'; // Import the helper function
+import {addToCart}from '../services/cartServices' // Import the helper function
 import '../css/productdetail.css';
 
 function ProductDetail() {
@@ -27,11 +27,10 @@ function ProductDetail() {
   },[id]);
 
   const handleAddToCart = () => {
-
-    addToCart(product);
+    addToCart(Number(id));
     alert('Producto agregado al carrito!');
   };
-
+  
   if(loading) return <div>Loading...</div>;
   if(error) return <div>Error: {error.message}</div>;
   
@@ -53,5 +52,6 @@ function ProductDetail() {
     </div>
   );
 }
+
 
 export default ProductDetail;

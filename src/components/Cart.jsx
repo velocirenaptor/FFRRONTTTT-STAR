@@ -2,11 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import  { getCart,clearCart } from '../services/cartServices';
 import '../css/cart.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
 const Cart = () => {
   const [cart, setCart] = useState({cartItem: []});
+  const [customerInfo, setCustomerInfo] = useState('');
+  const isOrderReady = customerInfo.length > 0;
+
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,6 +39,7 @@ const Cart = () => {
   fetchCart();
   }, []);
 
+
   const calcularTotal = (cartItems) => {
     if (!Array.isArray(cartItems)) return 0;
    
@@ -47,7 +54,17 @@ const Cart = () => {
     setCart({cartItem:[]});
     setTotal(0);
   };
-  
+
+  const handleRemoveItem = async (itemId) => {
+    const updatedCart = cart.cartItem.filter(item => item.id !== itemId);
+    setCart({cartItem: updatedCart});
+    calcularTotal(updatedCart);
+  };
+  const handleSendOrder = () => {
+    console.log('Enviando pedido');
+    navigator("/order-confirmation")
+
+  }  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -68,6 +85,12 @@ const Cart = () => {
         ))}
       </ul>
       <h2 className="cart-total">Total: ${total.toFixed(2)}</h2>
+      <input 
+        type="text"
+        placeholder="introduce tu usuario de instagram para contactarte"
+        value={customerInfo}
+        onChange={(e) => setCustomerInfo(e.target.value)}
+        />
       <div className="cart-actions">
         <button
           className={`checkout-button ${isOrderReady ? '' : 'disabled'}`}

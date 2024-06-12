@@ -5,15 +5,17 @@ export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const HandleLogin = async (e)=> {
+        
         e.preventDefault();
         const {accessToken,refreshToken} = await login(email,password);
+        setLoading(false);
         console.log('AcessToken:',accessToken);
         console.log('RefreshToken:',refreshToken);
         localStorage.setItem('accessToken',accessToken);
         localStorage.setItem('refreshToken',refreshToken);
-       
         if(!accessToken || !refreshToken){
            setError('Usuario o contraseña incorrectos');
         }else if(email === '' || password === ''){
@@ -22,7 +24,9 @@ export const Login = (props) => {
             window.location.href = '/';
         }
     }
-    
+    if(loading) return <div>Loading...</div>;
+    if(error) return <div>Error:{error}</div>;
+
     return (
         <div className="auth-form-container">
             <h2>Iniciar Sesión</h2>
@@ -37,5 +41,7 @@ export const Login = (props) => {
         </div>
     )
 }
+
+
 
 export default Login;
